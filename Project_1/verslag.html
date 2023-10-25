@@ -1,0 +1,545 @@
+<html class="pdstohbmf idc0_349">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-15" />
+    <title>Verslag</title>
+    <!-- Het "u" element (underline) is geherdefinieerd voor overline -->
+    <style type="text/css">
+      u {
+        text-decoration: overline;
+      }
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 30%;
+      }
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Verslag</h1>
+    <p><b>Titel:</b> <i>Computer Architectuur Project 1</i></p>
+    <p>Dit verslag werd opgesteld door:<br /></p>
+    <ul>
+      <li>
+        <b>Naam:</b> <i>Sabawoon Enayat</i><br />
+        <b>Studentennummer:</b> <i>20230497</i><br />
+        <b>Email adres:</b> <i>sabawoon.enayat@student.uantwerpen.be</i>
+      </li>
+      <li>
+        <b>Naam:</b> <i>Wajhudin Ibrahim</i><br />
+        <b>Studentennummer:</b> <i>20230459</i><br />
+        <b>Email adres:</b> <i>wajhudin.ibrahim@student.uantwerpen.be</i>
+      </li>
+    </ul>
+    <b>Aantal man-uren besteed:</b> <i>6-7 uur</i><br />
+    <b>Moeilijkheidsgraad:</b> <i>5</i> /10 (1 is heel makkelijk, 10 is heel
+    moeilijk)
+    <p></p>
+
+    <h2>Inhoud van de oplossing</h2>
+    <p>
+      De oplossing bestaat uit de volgende bestanden (geef alle bestanden op):
+    </p>
+    <ul>
+      <li><a href="/vraag3.circ">vraag3.circ</a>: NAND gate van vraag 3.</li>
+      <li><a href="/vraag4.circ">vraag4.circ</a>: Circuit van vraag 4</li>
+      <li>
+        <a href="/7seg_display.circ">7seg_display.circ</a>: Circuit van de 7
+        segment display
+      </li>
+    </ul>
+
+    <h2>Verslag</h2>
+
+    <i
+      ><p>
+        1. Prove De Morgan's theorems by composing a truth table. The theorems
+        are
+      </p>
+      <p>(a) <u>A + B</u> = <u>A</u> · <u>B</u></p>
+      <p>(b) <u>A · B</u> = <u>A</u> + <u>B</u></p>
+    </i>
+    <br />
+    (a):
+    <table>
+      <p><u>A + B</u></p>
+      <tr>
+        <th>A</th>
+        <th>B</th>
+        <th>OUT</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+      </tr>
+    </table>
+    <table>
+      <p><u>A</u> · <u>B</u></p>
+      <tr>
+        <th>A</th>
+        <th>B</th>
+        <th>OUT</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+      </tr>
+    </table>
+    <br />
+    (b):
+    <table>
+      <p><u>A · B</u></p>
+      <tr>
+        <th>A</th>
+        <th>B</th>
+        <th>OUT</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+      </tr>
+    </table>
+    <table>
+      <p><u>A</u> + <u>B</u></p>
+      <tr>
+        <th>A</th>
+        <th>B</th>
+        <th>OUT</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+      </tr>
+    </table>
+    <hr />
+    <i
+      ><p>2. Prove by using Boolean algebra that</p>
+      <p>
+        E = ((A · B) + (A · C) + (B · C)) · (<u>A · B · C</u>) ⇐⇒ E = (A · B ·
+        <u>C</u>) + (A · <u>B</u> · C) + (<u>A</u> · B · C)
+      </p>
+    </i>
+    <br />
+    <i>
+      <p>E = ((A · B) + (A · C) + (B · C)) · (<u>A · B · C</u>)</p>
+      <p>=> Wet van De Morgan</p>
+      <p>
+        E = ((A · B) + (A · C) + (B · C)) · (<u>A</u> + <u>B</u> + <u>C</u>)
+      </p>
+      <p>=> Distributiviteit</p>
+      <p>
+        E = (A · B · <u>A</u> + A · B · <u>B</u> + A · B · <u>C</u>) + (A · C ·
+        <u>A</u> + A · C · <u>B</u> + A · C · <u>C</u>) + ( B · C · <u>A</u> + B
+        · C · <u>B</u> + B · C · <u>C</u>)
+      </p>
+      <p>=> Inverse wet</p>
+      <p>
+        E = (0 · B + A · 0 + A · B · <u>C</u>) + (0 · C + A · C · <u>B</u> + A ·
+        0) + ( B · C · <u>A</u> + 0 · C + B · 0)
+      </p>
+      <p>=> Zero and Ones</p>
+      <p>E = (A · B · <u>C</u>) + (A · C · <u>B</u>) + (B · C · <u>A</u>)</p>
+      <p>=> Commutativiteit</p>
+      <p>E = (A · B · <u>C</u>) + (A · <u>B</u> · C) + (<u>A</u> · B · C)</p>
+    </i>
+    <hr />
+    <i
+      ><p>
+        3. Use Logisim to build a NAND gate as a new component using only basic
+        gates (AND, OR, NOT).
+      </p>
+      <p>
+        Like the set of AND, OR, NOT gates, the singleton NAND gate set is
+        functionally complete. This means that any algebraic expression or truth
+        table can be implemented by using only NAND gates. Show that NAND is
+        functionally complete by building an AND, OR and NOT gate using only
+        your own NAND component in Logisim.
+      </p></i
+    >
+    <br />
+    <p><a href="/vraag3.circ">vraag3.circ</a>: NAND gate van vraag 3.</p>
+    <hr />
+    <i
+      ><p>
+        4. Implement the following truth table in Logisim using AND, OR and NOT
+        gates. To do this, first write the truth table as a Boolean algebraic
+        expression. Use as few gates as possible. A, B and C are inputs, and X
+        and Y are outputs.
+      </p></i
+    >
+    <table>
+      <tr>
+        <th>A</th>
+        <th>C</th>
+        <th>C</th>
+        <th>X</th>
+        <th>Y</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+    </table>
+    <img src="/vraag4stap1.jpg" alt="Stap 1" width="50%" />
+    <img src="/vraag4stap2.jpg" alt="Stap 2" width="50%" />
+    <img src="/vraag4stap3.jpg" alt="Stap 3" width="50%" />
+    <img src="/vraag4stap4.jpg" alt="Stap 4" width="50%" />
+    <br />
+    <p><a href="/vraag4.circ">vraag4.circ</a>: Circuit van vraag 4</p>
+    <hr />
+    <i>
+      <p>
+        5. 1. Build a circuit that shows the representation of numbers 0 to 7 on
+        a LED display.
+      </p>
+      <ul>
+        <li>
+          Compose a truth table with binary outputs for every LED on the
+          7-Segment Display.
+        </li>
+        <li>
+          Find the Boolean algebraic expressions for this truth table. Discuss
+          why these ex- pressions are useful in the context of building a
+          circuit.
+        </li>
+        <li>
+          Implement the circuit in Logisim. Make use of a 3-bit input and the
+          Splitter com- ponent (from the Base library). Use the 7-Segment
+          Display of the Input/Output library.
+        </li>
+        <img
+          src="/vraag5_truthtable.png"
+          alt="Truth Table vraag 5"
+          height="300px"
+        />
+      </ul>
+    </i>
+    <br />
+    <table>
+      <tr>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+        <th>a</th>
+        <th>b</th>
+        <th>c</th>
+        <th>d</th>
+        <th>e</th>
+        <th>f</th>
+        <th>g</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+    </table>
+    <p>
+      a = (<u>A</u> · B · <u>C</u>) + (<u>A</u> · B · C) + (A ·<u>B</u>
+      ·<u>C</u>) + (A · <u>B</u> · C) + (A · B · <u>C</u>)
+    </p>
+    <p>
+      = <u>A</u>·(B·<u>C</u>+B· C)+A(<u>B</u>·<u>C</u>+<u>B</u>· C+B·<u>C</u>)
+    </p>
+    <p>=<u>A</u>·(B·(<u>C</u>+C)) + A·(<u>B</u>·(<u>C</u>+C) + B·<u>C</u>)</p>
+    <p>=<u>A</u>·B+A·(<u>B</u>+B·<u>C</u>)</p>
+    <br />
+    <p>
+      b = (<u>A</u> · <u>B</u> · <u>C</u>)+(A·<u>B</u>·<u>C</u>)+(A · <u>B</u> ·
+      C)+(A · B · <u>C</u>)
+    </p>
+    <p>
+      =(<u>A</u>·<u>B</u>·<u>C</u>)+A·(<u>B</u>·<u>C</u>+<u>B</u>· C+B·<u>C</u>)
+    </p>
+    <p>= (<u>A</u>·<u>B</u>·<u>C</u>)+A·(<u>B</u>·(<u>C</u>+C)+B·<u>C</u>)</p>
+    <p>= (<u>A</u>·<u>B</u>·<u>C</u>)+A·(<u>B</u>+B·<u>C</u>)</p>
+    <br />
+    <p>
+      c = (<u>A</u> · <u>B</u> · <u>C</u>) + (<u>A</u> · B · <u>C</u>) + (<u
+        >A</u
+      >
+      · B · C) + (A · <u>B</u> · C) + (A · B · <u>C</u>) + (A · B · C)
+    </p>
+    <p>
+      =<u>A</u>·(<u>B</u>·<u>C</u>+B·<u>C</u>+B· C)+A·(<u>B</u>· C+B·<u>C</u>+B·
+      C)
+    </p>
+    <p>
+      =<u>A</u>·(<u>B</u>·<u>C</u>+B·(<u>C</u>+C))+A·(<u>B</u>· C+B·(<u>C</u>+
+      C))
+    </p>
+    <p>=<u>A</u>·(<u>B</u>·<u>C</u>+B)+A·(<u>B</u>· C+B)</p>
+    <br />
+    <p>
+      d = (<u>A</u> · <u>B</u> · <u>C</u>) + (<u>A</u> · <u>B</u> · C) + (<u
+        >A</u
+      >
+      · B · <u>C</u>) + (<u>A</u> · B · C) + (A · <u>B</u> · <u>C</u>) + (A · B
+      · C)
+    </p>
+    <p>
+      = <u>A</u>·(<u>B</u>·<u>C</u>+<u>B</u>· C+B·<u>C</u>+B·
+      C)+A·(<u>B</u>·<u>C</u>+B· C)
+    </p>
+    <p>
+      =<u>A</u>·(<u>B</u>·(<u>C</u>+C)+B·(<u>C</u>+C))+A(<u>B</u>·<u>C</u>+B· C)
+    </p>
+    <p>=<u>A</u>·(<u>B</u>+B)+A(<u>B</u>·<u>C</u>+B· C)</p>
+    <p>=<u>A</u>+A·(<u>B</u>·<u>C</u>+B· C)</p>
+    <br />
+    <p>
+      e = (<u>A</u> · <u>B</u> · <u>C</u>) + (<u>A</u> · B · <u>C</u>) + (A · B
+      · <u>C</u>)
+    </p>
+    <p>= <u>C</u>·(<u>A</u>·<u>B</u>+<u>A</u>· B+A· B)</p>
+    <p>= <u>C</u>·(<u>A</u>·(<u>B</u>+B)+A· B)</p>
+    <p>=<u>C</u>·(<u>A</u>+A· B)</p>
+    <br />
+    <p>
+      f = (<u>A</u> · <u>B</u> · <u>C</u>) + (<u>A</u> · B · <u>C</u>) + (<u
+        >A</u
+      >
+      · B · C) + (A · <u>B</u> · C) + (A · B · <u>C</u>)
+    </p>
+    <p>
+      =<u>A</u>·(<u>B</u>·<u>C</u>+B·<u>C</u>+B· C)+A·(<u>B</u>· C+B·<u>C</u>)
+    </p>
+    <p>=<u>A</u>·(<u>C</u>·(<u>B</u>+B)+B· C)+A·(<u>B</u>· C+B·<u>C</u>)</p>
+    <p>=<u>A</u>·(<u>C</u>+B· C)+A·(<u>B</u>· C+B·<u>C</u>)</p>
+    <br />
+    <p>
+      g = (<u>A</u> · <u>B</u> · <u>C</u>) + (<u>A</u> · <u>B</u> · C) + (<u
+        >A</u
+      >
+      · B · C) + (A · <u>B</u> · <u>C</u>) + (A · <u>B</u> · C) + (A · B ·
+      <u>C</u>) + (A · B · C)
+    </p>
+    <p>
+      =<u>A</u>·(<u>B</u>·<u>C</u>+<u>B</u>· C+B·
+      C)+A(<u>B</u>·<u>C</u>+<u>B</u>· C+B·<u>C</u>+B· C)
+    </p>
+    <p>
+      =<u>A</u>·(<u>B</u>·(<u>C</u>+C)+B·
+      C)+A(<u>B</u>·(<u>C</u>+C)+B·(<u>C</u>+C))
+    </p>
+    <p>=<u>A</u>·(<u>B</u>+B·C)+A·(<u>B</u>+B)</p>
+    <p>=A+<u>A</u>·(<u>B</u>+B· C)</p>
+    <br />
+    <p>
+      <a href="/7seg_display.circ">7seg_display.circ</a>: Circuit van de 7
+      segment display
+    </p>
+  </body>
+</html>
