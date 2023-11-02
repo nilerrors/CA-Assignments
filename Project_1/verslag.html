@@ -18,6 +18,13 @@
         text-align: left;
         padding: 8px;
       }
+      .inline {
+        display: inline-table;
+        width: 100%;
+      }
+      img {
+        max-width: 50%;
+      }
     </style>
   </head>
   <body>
@@ -37,7 +44,7 @@
       </li>
     </ul>
     <b>Aantal man-uren besteed:</b> <i>6-7 uur</i><br />
-    <b>Moeilijkheidsgraad:</b> <i>5</i> /10 (1 is heel makkelijk, 10 is heel
+    <b>Moeilijkheidsgraad:</b> <i>3</i> /10 (1 is heel makkelijk, 10 is heel
     moeilijk)
     <p></p>
 
@@ -46,10 +53,10 @@
       De oplossing bestaat uit de volgende bestanden (geef alle bestanden op):
     </p>
     <ul>
-      <li><a href="/vraag3.circ">vraag3.circ</a>: NAND gate van vraag 3.</li>
-      <li><a href="/vraag4.circ">vraag4.circ</a>: Circuit van vraag 4</li>
+      <li><a href="./vraag3.circ">vraag3.circ</a>: NAND gate van vraag 3.</li>
+      <li><a href="./vraag4.circ">vraag4.circ</a>: Circuit van vraag 4</li>
       <li>
-        <a href="/7seg_display.circ">7seg_display.circ</a>: Circuit van de 7
+        <a href="./7seg_display.circ">7seg_display.circ</a>: Circuit van de 7
         segment display
       </li>
     </ul>
@@ -65,65 +72,67 @@
       <p>(b) <u>A · B</u> = <u>A</u> + <u>B</u></p>
     </i>
     <br />
-    (a):
-    <table>
-      <p><u>A + B</u></p>
-      <tr>
-        <th>A</th>
-        <th>B</th>
-        <th>OUT</th>
-      </tr>
-      <tr>
-        <td>0</td>
-        <td>0</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>0</td>
-        <td>1</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>0</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>1</td>
-        <td>0</td>
-      </tr>
-    </table>
-    <table>
-      <p><u>A</u> · <u>B</u></p>
-      <tr>
-        <th>A</th>
-        <th>B</th>
-        <th>OUT</th>
-      </tr>
-      <tr>
-        <td>0</td>
-        <td>0</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>0</td>
-        <td>1</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>0</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>1</td>
-        <td>0</td>
-      </tr>
-    </table>
+    (a): First Theorem
+    <div class="inline">
+      <table>
+        <p><u>A + B</u></p>
+        <tr>
+          <th>A</th>
+          <th>B</th>
+          <th>OUT</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+        </tr>
+      </table>
+      <table>
+        <p><u>A</u> · <u>B</u></p>
+        <tr>
+          <th>A</th>
+          <th>B</th>
+          <th>OUT</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+        </tr>
+      </table>
+    </div>
     <br />
-    (b):
+    (b): Second Theorem
     <table>
       <p><u>A · B</u></p>
       <tr>
@@ -191,24 +200,24 @@
     <br />
     <i>
       <p>E = ((A · B) + (A · C) + (B · C)) · (<u>A · B · C</u>)</p>
-      <p>=> Wet van De Morgan</p>
+      <p>=> Law of De Morgan</p>
       <p>
         E = ((A · B) + (A · C) + (B · C)) · (<u>A</u> + <u>B</u> + <u>C</u>)
       </p>
-      <p>=> Distributiviteit</p>
+      <p>=> Distributive Law</p>
       <p>
         E = (A · B · <u>A</u> + A · B · <u>B</u> + A · B · <u>C</u>) + (A · C ·
         <u>A</u> + A · C · <u>B</u> + A · C · <u>C</u>) + ( B · C · <u>A</u> + B
         · C · <u>B</u> + B · C · <u>C</u>)
       </p>
-      <p>=> Inverse wet</p>
+      <p>=> Inverse Law</p>
       <p>
         E = (0 · B + A · 0 + A · B · <u>C</u>) + (0 · C + A · C · <u>B</u> + A ·
         0) + ( B · C · <u>A</u> + 0 · C + B · 0)
       </p>
       <p>=> Zero and Ones</p>
       <p>E = (A · B · <u>C</u>) + (A · C · <u>B</u>) + (B · C · <u>A</u>)</p>
-      <p>=> Commutativiteit</p>
+      <p>=> Commutative Law</p>
       <p>E = (A · B · <u>C</u>) + (A · <u>B</u> · C) + (<u>A</u> · B · C)</p>
     </i>
     <hr />
@@ -226,7 +235,7 @@
       </p></i
     >
     <br />
-    <p><a href="/vraag3.circ">vraag3.circ</a>: NAND gate van vraag 3.</p>
+    <p><a href="./vraag3.circ">vraag3.circ</a>: NAND gate.</p>
     <hr />
     <i
       ><p>
@@ -301,12 +310,12 @@
         <td>0</td>
       </tr>
     </table>
-    <img src="/vraag4stap1.jpg" alt="Stap 1" width="50%" />
-    <img src="/vraag4stap2.jpg" alt="Stap 2" width="50%" />
-    <img src="/vraag4stap3.jpg" alt="Stap 3" width="50%" />
-    <img src="/vraag4stap4.jpg" alt="Stap 4" width="50%" />
+    <img src="./vraag4stap1.jpg" alt="Stap 1" />
+    <img src="./vraag4stap2.jpg" alt="Stap 2" />
+    <img src="./vraag4stap3.jpg" alt="Stap 3" />
+    <img src="./vraag4stap4.jpg" alt="Stap 4" />
     <br />
-    <p><a href="/vraag4.circ">vraag4.circ</a>: Circuit van vraag 4</p>
+    <p><a href="./vraag4.circ">vraag4.circ</a>: Circuit van vraag 4</p>
     <hr />
     <i>
       <p>
@@ -329,13 +338,28 @@
           Display of the Input/Output library.
         </li>
         <img
-          src="/vraag5_truthtable.png"
+          src="./vraag5_truthtable.png"
           alt="Truth Table vraag 5"
           height="300px"
         />
       </ul>
     </i>
     <br />
+    <p>
+      We use the letters "a" to "g" for the inputs of the 7-Segment display, and
+      "A" to "C" for each bit of the binary representation of number
+    </p>
+    <ul>
+      <li>a: line in the middle</li>
+      <li>b: line at top left</li>
+      <li>c: line at top</li>
+      <li>d: line at top right</li>
+      <li>e: line at bottom left</li>
+      <li>f: line at bottom</li>
+      <li>g: line at bottom right</li>
+    </ul>
+
+    <p>We will first compose a truth table</p>
     <table>
       <tr>
         <th>A</th>
@@ -446,100 +470,129 @@
         <td>1</td>
       </tr>
     </table>
-    <p>
-      a = (<u>A</u> · B · <u>C</u>) + (<u>A</u> · B · C) + (A ·<u>B</u>
-      ·<u>C</u>) + (A · <u>B</u> · C) + (A · B · <u>C</u>)
-    </p>
-    <p>
-      = <u>A</u>·(B·<u>C</u>+B· C)+A(<u>B</u>·<u>C</u>+<u>B</u>· C+B·<u>C</u>)
-    </p>
-    <p>=<u>A</u>·(B·(<u>C</u>+C)) + A·(<u>B</u>·(<u>C</u>+C) + B·<u>C</u>)</p>
-    <p>=<u>A</u>·B+A·(<u>B</u>+B·<u>C</u>)</p>
     <br />
     <p>
-      b = (<u>A</u> · <u>B</u> · <u>C</u>)+(A·<u>B</u>·<u>C</u>)+(A · <u>B</u> ·
-      C)+(A · B · <u>C</u>)
+      Using the truth table we can write down the Boolean expressions for each
+      output:
     </p>
-    <p>
-      =(<u>A</u>·<u>B</u>·<u>C</u>)+A·(<u>B</u>·<u>C</u>+<u>B</u>· C+B·<u>C</u>)
-    </p>
-    <p>= (<u>A</u>·<u>B</u>·<u>C</u>)+A·(<u>B</u>·(<u>C</u>+C)+B·<u>C</u>)</p>
-    <p>= (<u>A</u>·<u>B</u>·<u>C</u>)+A·(<u>B</u>+B·<u>C</u>)</p>
+    <ul>
+      <p>
+        a = (<u>A</u> · B · <u>C</u>) + (<u>A</u> · B · C) + (A ·<u>B</u>
+        ·<u>C</u>) + (A · <u>B</u> · C) + (A · B · <u>C</u>)
+      </p>
+      <ul>
+        <p>
+          = <u>A</u>·(B·<u>C</u>+B· C)+A(<u>B</u>·<u>C</u>+<u>B</u>·
+          C+B·<u>C</u>)
+        </p>
+        <p>
+          =<u>A</u>·(B·(<u>C</u>+C)) + A·(<u>B</u>·(<u>C</u>+C) + B·<u>C</u>)
+        </p>
+        <p>=<u>A</u>·B+A·(<u>B</u>+B·<u>C</u>)</p>
+      </ul>
+      <br />
+      <p>
+        b = (<u>A</u> · <u>B</u> · <u>C</u>)+(A·<u>B</u>·<u>C</u>)+(A ·
+        <u>B</u> · C)+(A · B · <u>C</u>)
+      </p>
+      <ul>
+        <p>
+          =(<u>A</u>·<u>B</u>·<u>C</u>)+A·(<u>B</u>·<u>C</u>+<u>B</u>·
+          C+B·<u>C</u>)
+        </p>
+        <p>
+          = (<u>A</u>·<u>B</u>·<u>C</u>)+A·(<u>B</u>·(<u>C</u>+C)+B·<u>C</u>)
+        </p>
+        <p>= (<u>A</u>·<u>B</u>·<u>C</u>)+A·(<u>B</u>+B·<u>C</u>)</p>
+      </ul>
+      <br />
+      <p>
+        c = (<u>A</u> · <u>B</u> · <u>C</u>) + (<u>A</u> · B · <u>C</u>) + (<u
+          >A</u
+        >
+        · B · C) + (A · <u>B</u> · C) + (A · B · <u>C</u>) + (A · B · C)
+      </p>
+      <ul>
+        <p>
+          =<u>A</u>·(<u>B</u>·<u>C</u>+B·<u>C</u>+B· C)+A·(<u>B</u>·
+          C+B·<u>C</u>+B· C)
+        </p>
+        <p>
+          =<u>A</u>·(<u>B</u>·<u>C</u>+B·(<u>C</u>+C))+A·(<u>B</u>·
+          C+B·(<u>C</u>+ C))
+        </p>
+        <p>=<u>A</u>·(<u>B</u>·<u>C</u>+B)+A·(<u>B</u>· C+B)</p>
+      </ul>
+      <br />
+      <p>
+        d = (<u>A</u> · <u>B</u> · <u>C</u>) + (<u>A</u> · <u>B</u> · C) + (<u
+          >A</u
+        >
+        · B · <u>C</u>) + (<u>A</u> · B · C) + (A · <u>B</u> · <u>C</u>) + (A ·
+        B · C)
+      </p>
+      <ul>
+        <p>
+          = <u>A</u>·(<u>B</u>·<u>C</u>+<u>B</u>· C+B·<u>C</u>+B·
+          C)+A·(<u>B</u>·<u>C</u>+B· C)
+        </p>
+        <p>
+          =<u>A</u>·(<u>B</u>·(<u>C</u>+C)+B·(<u>C</u>+C))+A(<u>B</u>·<u>C</u>+B·
+          C)
+        </p>
+        <p>=<u>A</u>·(<u>B</u>+B)+A(<u>B</u>·<u>C</u>+B· C)</p>
+        <p>=<u>A</u>+A·(<u>B</u>·<u>C</u>+B· C)</p>
+      </ul>
+      <br />
+      <p>
+        e = (<u>A</u> · <u>B</u> · <u>C</u>) + (<u>A</u> · B · <u>C</u>) + (A ·
+        B · <u>C</u>)
+      </p>
+      <ul>
+        <p>= <u>C</u>·(<u>A</u>·<u>B</u>+<u>A</u>· B+A· B)</p>
+        <p>= <u>C</u>·(<u>A</u>·(<u>B</u>+B)+A· B)</p>
+        <p>=<u>C</u>·(<u>A</u>+A· B)</p>
+      </ul>
+      <br />
+      <p>
+        f = (<u>A</u> · <u>B</u> · <u>C</u>) + (<u>A</u> · B · <u>C</u>) + (<u
+          >A</u
+        >
+        · B · C) + (A · <u>B</u> · C) + (A · B · <u>C</u>)
+      </p>
+      <ul>
+        <p>
+          =<u>A</u>·(<u>B</u>·<u>C</u>+B·<u>C</u>+B· C)+A·(<u>B</u>·
+          C+B·<u>C</u>)
+        </p>
+        <p>=<u>A</u>·(<u>C</u>·(<u>B</u>+B)+B· C)+A·(<u>B</u>· C+B·<u>C</u>)</p>
+        <p>=<u>A</u>·(<u>C</u>+B· C)+A·(<u>B</u>· C+B·<u>C</u>)</p>
+      </ul>
+      <br />
+      <p>
+        g = (<u>A</u> · <u>B</u> · <u>C</u>) + (<u>A</u> · <u>B</u> · C) + (<u
+          >A</u
+        >
+        · B · C) + (A · <u>B</u> · <u>C</u>) + (A · <u>B</u> · C) + (A · B ·
+        <u>C</u>) + (A · B · C)
+      </p>
+      <ul>
+        <p>
+          =<u>A</u>·(<u>B</u>·<u>C</u>+<u>B</u>· C+B·
+          C)+A(<u>B</u>·<u>C</u>+<u>B</u>· C+B·<u>C</u>+B· C)
+        </p>
+        <p>
+          =<u>A</u>·(<u>B</u>·(<u>C</u>+C)+B·
+          C)+A(<u>B</u>·(<u>C</u>+C)+B·(<u>C</u>+C))
+        </p>
+        <p>=<u>A</u>·(<u>B</u>+B·C)+A·(<u>B</u>+B)</p>
+        <p>=A+<u>A</u>·(<u>B</u>+B· C)</p>
+      </ul>
+    </ul>
     <br />
     <p>
-      c = (<u>A</u> · <u>B</u> · <u>C</u>) + (<u>A</u> · B · <u>C</u>) + (<u
-        >A</u
-      >
-      · B · C) + (A · <u>B</u> · C) + (A · B · <u>C</u>) + (A · B · C)
-    </p>
-    <p>
-      =<u>A</u>·(<u>B</u>·<u>C</u>+B·<u>C</u>+B· C)+A·(<u>B</u>· C+B·<u>C</u>+B·
-      C)
-    </p>
-    <p>
-      =<u>A</u>·(<u>B</u>·<u>C</u>+B·(<u>C</u>+C))+A·(<u>B</u>· C+B·(<u>C</u>+
-      C))
-    </p>
-    <p>=<u>A</u>·(<u>B</u>·<u>C</u>+B)+A·(<u>B</u>· C+B)</p>
-    <br />
-    <p>
-      d = (<u>A</u> · <u>B</u> · <u>C</u>) + (<u>A</u> · <u>B</u> · C) + (<u
-        >A</u
-      >
-      · B · <u>C</u>) + (<u>A</u> · B · C) + (A · <u>B</u> · <u>C</u>) + (A · B
-      · C)
-    </p>
-    <p>
-      = <u>A</u>·(<u>B</u>·<u>C</u>+<u>B</u>· C+B·<u>C</u>+B·
-      C)+A·(<u>B</u>·<u>C</u>+B· C)
-    </p>
-    <p>
-      =<u>A</u>·(<u>B</u>·(<u>C</u>+C)+B·(<u>C</u>+C))+A(<u>B</u>·<u>C</u>+B· C)
-    </p>
-    <p>=<u>A</u>·(<u>B</u>+B)+A(<u>B</u>·<u>C</u>+B· C)</p>
-    <p>=<u>A</u>+A·(<u>B</u>·<u>C</u>+B· C)</p>
-    <br />
-    <p>
-      e = (<u>A</u> · <u>B</u> · <u>C</u>) + (<u>A</u> · B · <u>C</u>) + (A · B
-      · <u>C</u>)
-    </p>
-    <p>= <u>C</u>·(<u>A</u>·<u>B</u>+<u>A</u>· B+A· B)</p>
-    <p>= <u>C</u>·(<u>A</u>·(<u>B</u>+B)+A· B)</p>
-    <p>=<u>C</u>·(<u>A</u>+A· B)</p>
-    <br />
-    <p>
-      f = (<u>A</u> · <u>B</u> · <u>C</u>) + (<u>A</u> · B · <u>C</u>) + (<u
-        >A</u
-      >
-      · B · C) + (A · <u>B</u> · C) + (A · B · <u>C</u>)
-    </p>
-    <p>
-      =<u>A</u>·(<u>B</u>·<u>C</u>+B·<u>C</u>+B· C)+A·(<u>B</u>· C+B·<u>C</u>)
-    </p>
-    <p>=<u>A</u>·(<u>C</u>·(<u>B</u>+B)+B· C)+A·(<u>B</u>· C+B·<u>C</u>)</p>
-    <p>=<u>A</u>·(<u>C</u>+B· C)+A·(<u>B</u>· C+B·<u>C</u>)</p>
-    <br />
-    <p>
-      g = (<u>A</u> · <u>B</u> · <u>C</u>) + (<u>A</u> · <u>B</u> · C) + (<u
-        >A</u
-      >
-      · B · C) + (A · <u>B</u> · <u>C</u>) + (A · <u>B</u> · C) + (A · B ·
-      <u>C</u>) + (A · B · C)
-    </p>
-    <p>
-      =<u>A</u>·(<u>B</u>·<u>C</u>+<u>B</u>· C+B·
-      C)+A(<u>B</u>·<u>C</u>+<u>B</u>· C+B·<u>C</u>+B· C)
-    </p>
-    <p>
-      =<u>A</u>·(<u>B</u>·(<u>C</u>+C)+B·
-      C)+A(<u>B</u>·(<u>C</u>+C)+B·(<u>C</u>+C))
-    </p>
-    <p>=<u>A</u>·(<u>B</u>+B·C)+A·(<u>B</u>+B)</p>
-    <p>=A+<u>A</u>·(<u>B</u>+B· C)</p>
-    <br />
-    <p>
-      <a href="/7seg_display.circ">7seg_display.circ</a>: Circuit van de 7
-      segment display
+      <a href="./7seg_display.circ">7seg_display.circ</a>: Circuit of the
+      7-Segment display
     </p>
   </body>
 </html>
