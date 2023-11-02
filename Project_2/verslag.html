@@ -1,0 +1,457 @@
+<html class="pdstohbmf idc0_349">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-15" />
+    <title>Verslag</title>
+    <!-- Het "u" element (underline) is geherdefinieerd voor overline -->
+    <style type="text/css">
+      u {
+        text-decoration: overline;
+      }
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 30%;
+      }
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      img {
+        max-width: 50%;
+      }
+      del {
+        text-decoration-color: red;
+      }
+      p,
+      li {
+        width: 40%;
+      }
+      .addition {
+        width: 20%;
+      }
+      .addition p {
+        width: 100%;
+        text-align: right;
+      }
+      .addition span {
+        color: #999;
+        background-color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Verslag</h1>
+    <p><b>Titel:</b> <i>Computer Architectuur Project 2: Adders</i></p>
+    <p>Dit verslag werd opgesteld door:<br /></p>
+    <ul>
+      <li>
+        <b>Naam:</b> <i>Sabawoon Enayat</i><br />
+        <b>Studentennummer:</b> <i>20230497</i><br />
+        <b>Email adres:</b> <i>sabawoon.enayat@student.uantwerpen.be</i>
+      </li>
+      <li>
+        <b>Naam:</b> <i></i><br />
+        <b>Studentennummer:</b> <i></i><br />
+        <b>Email adres:</b> <i></i>
+      </li>
+    </ul>
+    <b>Aantal man-uren besteed:</b> <i>10 uur</i><br />
+    <b>Moeilijkheidsgraad:</b> <i>5</i> /10 (1 is heel makkelijk, 10 is heel
+    moeilijk)
+    <p></p>
+
+    <h2>Inhoud van de oplossing</h2>
+    <p>
+      De oplossing bestaat uit de volgende bestanden (geef alle bestanden op):
+    </p>
+    <ul>
+      <li><a href="./1-Bit_Adder.circ">1-Bit_Adder.circ</a>: 1-Bit Adder</li>
+      <li><a href="./vraag4.circ">vraag4.circ</a>: Circuit van vraag 4</li>
+      <li>
+        <a href="./7seg_display.circ">7seg_display.circ</a>: Circuit van de 7
+        segment display
+      </li>
+    </ul>
+
+    <h2>Verslag</h2>
+    <div>
+      <p>1. Build a 1-bit full adder (with carry in and carry out).</p>
+      <ul>
+        <p>
+          (a) Determine the inputs and outputs of a 1-bit full adder and build a
+          truth table.
+        </p>
+        <div>
+          <table>
+            <tr>
+              <th>A</th>
+              <th>B</th>
+              <th>Cin (Carry In)</th>
+              <th>Cout (Carry Out)</th>
+              <th>Sum</th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>0</td>
+              <td>1</td>
+              <td>0</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>1</td>
+              <td>0</td>
+              <td>0</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>0</td>
+              <td>1</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>0</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+          </table>
+        </div>
+        <p>
+          (b) Convert the truth table to Boolean algebra, and optimize the
+          Boolean expression.
+        </p>
+        <ul>
+          <p>
+            Sum = (A · <u>B</u> · <u>Cin</u>) + (<u>A</u> · B · <u>Cin</u>) +
+            (<u>A</u> ·<u>B</u>
+            · Cin) + (A · B · Cin)
+          </p>
+          <ul>
+            <p>
+              = <u>Cin</u> · (A · <u>B</u> + <u>A</u> · B) + Cin · (<u>A</u> ·
+              <u>B</u> + A · B)
+            </p>
+            <p>
+              = <u>Cin</u> · (A &#x2295; B) + Cin · (<u>A</u> · <u>B</u> + A ·
+              B)
+            </p>
+          </ul>
+          <p>
+            Cout = (B · Cin) + (A · Cin) + (A · B) + <del>(A · B · Cin)</del>
+          </p>
+          <ul>
+            <p>= Cin · (A + B) + (A · B)</p>
+          </ul>
+        </ul>
+        <p>
+          (c) Implement the Boolean expression as a circuit called “1-Bit Adder”
+          in Logisim.
+        </p>
+        <ul>
+          <img src="./1-Bit_Adder.png" alt="1-Bit Full Adder" width="30%" />
+          <li>
+            <a href="./1-Bit_Adder.circ">1-Bit_Adder.circ</a>: 1-Bit Adder
+          </li>
+        </ul>
+      </ul>
+    </div>
+    <div>
+      <p>2. Build a circuit of a 12-bit two’s complement ripple carry adder.</p>
+      <ul>
+        <p>
+          (a) Create a new circuit in the same logisim file where you created
+          your 1-bit adder. You can do this by choosing from the menu ‘Project’
+          - ‘Add Circuit’. You can then choose which circuit you want to edit by
+          double clicking it in the library menu on the left side. You can use a
+          self made circuit as a building block in another circuit, in the same
+          way as you use other blocks/gates in your circuit. The interface of
+          your block is determined by the input and output ports you created in
+          its circuit.
+        </p>
+        <p>
+          (b) Use 1-bit adders to create a 12-bit adder, that adds two 12-bit
+          wide inputs.
+        </p>
+        <ul>
+          <img src="./12-Bit_RCA.png" alt="12-Bit Ripple Carry Adder" />
+          <li><a href="./12-Bit_RCA.circ">12-Bit_RCA.circ</a>: 12-Bit Adder</li>
+        </ul>
+        <p>
+          (c) Think about a way how overflow can be determined from carry outs.
+          Overflow happens for example in these cases: 2047 + 1 = -2048 or -2048
+          + (-1) = 2047. Add an output bit denoting overflow to the circuit
+          containing your 12-bit two’s complement adder.
+        </p>
+        <ul>
+          <p style="font-size: x-small">
+            Reference:
+            <a
+              href="https://cseweb.ucsd.edu/classes/su17_2/cse140-a/lectures/CSE140_Imani_slide4_annotated.pdf"
+              >Page 26</a
+            >
+          </p>
+          <p>
+            Overflow can be detected by XOR-ing the last two carry's. If both
+            are similar, then there's no overflow, otherwise overflow.
+          </p>
+          <ul>
+            <p>2047 + 1 = -2048 &#x27F6; Overflow</p>
+            <div class="addition">
+              <p style="color: #555">
+                <span>Carries:&#9;</span>
+                0 1 1 1 1 1 1 1 1 1 1 1 0
+              </p>
+              <p><span>A:&#9;</span>0 1 1 1 1 1 1 1 1 1 1 1</p>
+              <p><span>B:&#9;</span>0 0 0 0 0 0 0 0 0 0 0 1</p>
+              <hr />
+              <p><span>Sum:&#9;</span>1 0 0 0 0 0 0 0 0 0 0 0</p>
+            </div>
+            <p>-2048 - 1 = 2047 &#x27F6; Overflow</p>
+            <div class="addition">
+              <p style="color: #555">
+                <span>Carries:&#9;</span>
+                1 0 0 0 0 0 0 0 0 0 0 0 0
+              </p>
+              <p><span>A:&#9;</span>1 0 0 0 0 0 0 0 0 0 0 0</p>
+              <p><span>B:&#9;</span>1 1 1 1 1 1 1 1 1 1 1 1</p>
+              <hr />
+              <p><span>Sum:&#9;</span>0 1 1 1 1 1 1 1 1 1 1 1</p>
+            </div>
+            <p>1220 + 560 = 1780 &#x27F6; No Overflow</p>
+            <div class="addition">
+              <p style="color: #555">
+                <span>Carries:&#9;</span>
+                0 0 0 0 0 0 0 0 0 0 0 0 0
+              </p>
+              <p><span>A:&#9;</span>0 1 0 0 1 1 0 0 0 1 0 0</p>
+              <p><span>B:&#9;</span>0 0 1 0 0 0 1 1 0 0 0 0</p>
+              <hr />
+              <p><span>Sum:&#9;</span>0 1 1 1 1 1 1 1 0 1 0 0</p>
+            </div>
+          </ul>
+          <ul>
+            <img
+              src="./12-Bit_Full_RCA.png"
+              alt="12-Bit Ripple Carry Adder with Overflow"
+            />
+            <li>
+              <a href="./12-Bit_Full_RCA.circ">12-Bit_RCA.circ</a>: 12-Bit Adder
+              with Overflow
+            </li>
+          </ul>
+        </ul>
+      </ul>
+    </div>
+    <div>
+      <p>
+        3. Build a circuit of a 12-bit two’s complement carry lookahead adder
+        using three 4-bit adder blocks.
+      </p>
+      <ul>
+        <p>
+          (a) Build a circuit for a 4-bit adder block. This block has inputs
+          carryIn, a0, a1, a2, a3, b0, b1, b2, b3 and outputs s0, s1, s2, s3,
+          P0, G0. Note that there is no output for carryOut, as a carry
+          lookahead adder doesn’t use c<sub>i-1</sub>.
+        </p>
+        <ul>
+          <img
+            src="./4-Bit_CLA.png"
+            alt="4-Bit Carry Lookahead Adder"
+            width="40%"
+          />
+          <li>
+            <a href="./4-Bit_CLA.circ">4-Bit_CLA.circ</a>: 4-Bit Carry Lookahead
+            Adder
+          </li>
+        </ul>
+        <p>
+          (b) Optimise this 4-bit adder block to decrease the circuit latency
+          (maximum number of ports traversed). Do this by expressing your block
+          as a set of Boolean equations (for every output pin, in terms of input
+          pins), and using Boolean algebra or a truth table to optimise these
+          equations. What is always the maximum latency for combinatorial
+          circuits? Build your optimised 4-bit adder block.
+        </p>
+        <ul>
+          <p>
+            The circuit that needs optimization the most, is the cicruit for
+            carrylookaheads, in which the carry's are calculated in parallel.
+          </p>
+          <p>
+            I will only optimize c<sub>1</sub>, c<sub>2</sub> c<sub>3</sub>, P
+            (Super-Propagate) and G (Super-Generate) as c<sub>in</sub> is given
+            and c<sub>4</sub> is not needed (and can be calculated by P and G).
+          </p>
+          <p>
+            All these can be optimized using
+            <i>p<sub>i</sub></i> (propagate) and
+            <i>g<sub>i</sub></i> (generate), which are equal to:
+          </p>
+          <ul>
+            <p>p<sub>i</sub> = a<sub>i</sub> + b<sub>i</sub></p>
+            <p>g<sub>i</sub> = a<sub>i</sub> · b<sub>i</sub></p>
+          </ul>
+          <p>
+            Thus <i>c<sub>1</sub> = (a0 · b0) + cin · (a0 + b0)</i> can be
+            written as:
+          </p>
+          <ul>
+            <p>c1 = g0 + p0 · cin</p>
+          </ul>
+          <p>We can do this for rest of the expressions as well:</p>
+          <ul>
+            <p>c2 = g1 + p1 · c1</p>
+            <ul>
+              <p>= g1 + p1 · (g0 + p0 · cin)</p>
+              <p>= g1 + (p1 · g0) + (p1 · p0 · c0)</p>
+            </ul>
+            <p>c3 = g2 + p2 · c2</p>
+            <ul>
+              <p>= g2 + p2 · (g1 + (p1 · g0) + (p1 · p0 · c0))</p>
+              <p>= g2 + (p2 · g1) + (p2 · p1 · g0) + (p2 · p1 · p0 · c0)</p>
+            </ul>
+            <p>P = p3 · p2 · p1 · p0</p>
+            <p>G = g3 + (p3 · g2) + (p3 · p2 · g1) + (p3 · p2 · p1 · g0)</p>
+          </ul>
+          <ul>
+            <img
+              src="./4-Bit_CLA_Gen_Prop.png"
+              alt="4-Bit Carry Lookahead Adder optimized"
+              width="40%"
+            />
+            <li>
+              <a href="./4-Bit_CLA_Gen_Prop.circ">4-Bit_CLA_Gen_Prop.circ</a>:
+              4-Bit Carry Lookahead Adder Optimized
+            </li>
+          </ul>
+        </ul>
+        <p>
+          (c) Build a circuit of a 12-bit two’s complement carry lookahead adder
+          by creating a “carry lookahead unit” that uses three of your own 4-bit
+          adder blocks.
+        </p>
+        <ul>
+          <img
+            src="./12-Bit_CLA.png"
+            alt="12-Bit Carry Lookahead Adder"
+            width="100%"
+          />
+          <li>
+            <a href="./12-Bit_CLA.circ">12-Bit_CLA.circ</a>: 12-Bit Carry
+            Lookahead Adder
+          </li>
+        </ul>
+        <p>
+          (d) On this 12-bit adder circuit, create an extra output bit, denoting
+          overflow.
+        </p>
+        <ul>
+          <p>
+            In this circuit using the nice trick from the ripple carry adder
+            overflow detection (above; 2.c) is difficult, so in this circuit we
+            will check this way:
+          </p>
+          <ul>
+            <p>
+              overflow = <u>a<sub>11</sub></u> · <u>b<sub>11</sub></u> · s<sub
+                >11</sub
+              >
+              + a<sub>11</sub> · b<sub>11</sub> · <u>s<sub>11</sub></u>
+            </p>
+          </ul>
+        </ul>
+        <ul>
+          <img
+            src="./12-Bit_CLA_overflow.png"
+            alt="12-Bit Carry Lookahead Adder with Overflow"
+            width="100%"
+          />
+          <li>
+            <a href="./12-Bit_CLA_overflow.circ">12-Bit_CLA_overflow.circ</a>:
+            12-Bit Carry Lookahead Adder with Overflow detection
+          </li>
+        </ul>
+      </ul>
+    </div>
+    <div>
+      <p>
+        4. Verify that your 12-bit two’s complement carry lookahead adder is
+        correct.
+      </p>
+      <ul>
+        <li>
+          Do this by connecting two 12-bit inputs to both the carry lookahead
+          12-bit adder and the ripple carry 12-bit adders, and comparing the
+          outputs.
+        </li>
+        <ul>
+          <img
+            src="./check_RCA_CLA.png"
+            alt="Check 12-Bit Ripple Carry & Carry Lookahead Adders"
+          />
+          <li>
+            <a href="./check_RCA_CLA.circ">check_RCA_CLA.circ</a>: Check 12-Bit
+            Ripple Carry & Carry Lookahead Adders
+          </li>
+        </ul>
+        <li>
+          To compare the carry lookahead 12-bit adder and the ripple carry
+          12-bit adders, count the latency of both blocks.
+        </li>
+        <ul>
+          <p>Ripple Carry:</p>
+          <ul>
+            <p>1-Bit adder: 4&epsilon;</p>
+            <p>Overflow: 1&epsilon;</p>
+            <p style="color: red">Total: (4 * 12 + 1) = 49&epsilon;</p>
+          </ul>
+          <p>Carry Lookahead:</p>
+          <ul>
+            <p>4-Bit Adder:</p>
+            <ul>
+              <p>1-Bit adder: 4&epsilon;</p>
+              <p>Carries: 3&epsilon;</p>
+            </ul>
+            <p>Carry Lookahead unit: 2&epsilon;</p>
+            <p style="color: red">Total: 9&epsilon;</p>
+          </ul>
+        </ul>
+      </ul>
+    </div>
+  </body>
+</html>
