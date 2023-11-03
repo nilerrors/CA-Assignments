@@ -4,6 +4,4 @@
 
 ## Project_3
 
-- Fix the `gt` operation.
 - Fix the `sla` operation.
-- Fix the `sra` operation.
