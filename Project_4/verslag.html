@@ -1,0 +1,218 @@
+<html class="pdstohbmf idc0_349">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-15" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verslag</title>
+    <!-- Het "u" element (underline) is geherdefinieerd voor overline -->
+    <style type="text/css">
+      u {
+        text-decoration: overline;
+      }
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 30%;
+      }
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      img {
+        max-width: 50%;
+      }
+      del {
+        text-decoration-color: red;
+      }
+      p {
+        width: 40%;
+      }
+      .addition {
+        width: 20%;
+      }
+      .addition p {
+        width: 100%;
+        text-align: right;
+      }
+      .addition span {
+        color: #999;
+        background-color: aliceblue;
+      }
+      .highlight {
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Verslag</h1>
+    <p><b>Titel:</b> <i>Computer Architectuur Project 4: Memory</i></p>
+    <p>Dit verslag werd opgesteld door:<br /></p>
+    <ul>
+      <li>
+        <b>Naam:</b> <i>Sabawoon Enayat</i><br />
+        <b>Studentennummer:</b> <i>20230497</i><br />
+        <b>Email adres:</b> <i>sabawoon.enayat@student.uantwerpen.be</i>
+      </li>
+      <li>
+        <b>Naam:</b> <i>Adam Boustta</i><br />
+        <b>Studentennummer:</b> <i>20231385</i><br />
+        <b>Email adres:</b> <i>adam.boustta@student.uantwerpen.be</i>
+      </li>
+    </ul>
+    <b>Aantal man-uren besteed:</b> <i>6 uur</i><br />
+    <b>Moeilijkheidsgraad:</b> <i>4</i> /10 (1 is heel makkelijk, 10 is heel
+    moeilijk)
+    <p></p>
+
+    <h2>Inhoud van de oplossing</h2>
+    <p>
+      De oplossing bestaat uit de volgende bestanden (geef alle bestanden op):
+    </p>
+    <ul>
+      <li>
+        <a href="./Memory.circ">Memory.circ</a>: Memory circuits, contains all
+        the assignment exercises.
+      </li>
+    </ul>
+    <h2>Verslag</h2>
+    <ul>
+      <div>
+        <i>
+          <p>
+            1. Build a 12-bit register using 12 D flip-flops (from Logisim) that
+            are updated on the falling edge (beware: in Logisim D flip-flops are
+            by default on the rising edge). Inputs are:
+          </p>
+          <ul>
+            <li>2-bit “D”, which denotes the input data</li>
+            <li>
+              1-bit “reset”, that sets the contents of the register to
+              000000000000 if its value is 1
+            </li>
+            <li>
+              1-bit “write”, that enables writing the value of D to the register
+              if its value is 1
+            </li>
+            <li>1-bit C, which will contain the clock signal</li>
+          </ul>
+          <p>
+            The only output is a 12-bit Q that contains the contents of the
+            register.
+          </p>
+        </i>
+        <ul>
+          <p>
+            The following register is created, using the builtin D filp-flop in
+            Logisim. They are set to trigger on falling edge.
+          </p>
+          <img src="./Register.png" alt="Register" />
+        </ul>
+      </div>
+      <div>
+        <i>
+          <p>
+            2. Build a register file made of 8 of your own 12-bit registers. The
+            register file must be able to read from and write to specified
+            registers. In this case, the register file reads from two registers,
+            and can possibly write to a register at the same time. Register 0 is
+            a special case: it always contains zero, and writing to it does not
+            modify its contents. The register file has the following in- and
+            outputs:
+          </p>
+          <img src="./RegisterFileTable.png" alt="Register File" />
+        </i>
+        <ul>
+          <p>
+            The $rd is decoded so we can know what register to write to. The $rs
+            and $rt are selected using a multiplexor.
+          </p>
+          <img src="./RegisterFile.png" alt="Register File" />
+        </ul>
+      </div>
+      <div>
+        <i>
+          <p>
+            3. Build a counter using your own 12-bit carry lookahead adder and
+            12-bit register. Inputs are C (the clock) and D (a 12-bit number up
+            to which the counter counts), the output is the current 12-bit value
+            of the register. At every clock tick, the counter adds 1 to the
+            number in the register. When the register value is equal to or
+            greater than D, the value is reset to zero. A counter with its
+            D-input equal to 3 counts from 0 to 2. You can use the Logisim
+            built-in Comparator.
+          </p>
+        </i>
+        <ul>
+          <p>
+            The comparator check if the current value is equal to a Data input.
+            If so it resets the register. It adds 1 to the register every clock
+            cycle.
+          </p>
+          <img src="./Counter.png" alt="Counter" />
+        </ul>
+      </div>
+      <div>
+        <i>
+          <p>
+            4. Build a finite-state machine that implements a traffic light
+            system on a cross section. Finite-state machines use memory and a
+            clock. Since finite-state machines are synchronous, a new state is
+            computed every clock cycle. A 2 Hz clock has a full clock cycle of 1
+            second. Use your counter to advance through the states and make sure
+            your state transitions happen at the right time. The two traffic
+            lights behave like the following figure:
+          </p>
+          <img
+            src="./TrafficLightTimeTable.png"
+            alt="Traffic Light Time Table"
+          />
+        </i>
+        <ul>
+          <p>
+            The counter, and the comparators are used to construct the traffic
+            light.
+          </p>
+          <img src="./TrafficLight.png" alt="Traffic Light" />
+        </ul>
+      </div>
+      <div>
+        <i
+          ><p>
+            5. (Bonus) Build a 12-bit stack using the logisim RAM element. Use
+            your own 12-bit register to store the stack pointer. The stack
+            pointer should always point to the next free address after the top
+            of the stack. By default, the peek operation is performed, which
+            simply outputs the value of the top of the stack, or zero if the
+            stack is empty. Two 1-bit inputs will be used to indicate a push or
+            a pop operation. The push operation will place the data from the
+            Data input on top of the stack, and increase the stack pointer by
+            one. The pop operation will replace the data on top of the stack
+            with zero, and decrease the stack pointer by one.
+          </p></i
+        >
+        <ul>
+          <p>
+            The Stack is implemented using a custom circuit,
+            <code>count_on_demand</code>, which increases the counter if push,
+            decreases if pop, returns an error if both push and pop are
+            selected, or if pop when counter is 0.
+          </p>
+          <div>
+            <img src="./Stack.png" alt="Stack" />
+            <code>Stack</code>
+          </div>
+          <div>
+            <img src="./StackCountOnDemand.png" alt="Stack Count on Demand" />
+            <code>Stack Count on Demand</code>
+          </div>
+          <div>
+            <img src="./IsNull.png" alt="IsNull" />
+            <code>IsNull (checks if value is null)</code>
+          </div>
+        </ul>
+      </div>
+    </ul>
+  </body>
+</html>
