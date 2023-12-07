@@ -1,0 +1,69 @@
+LOADMEM # test 10
+zero r1       # 0
+ldi r2 1      # 1
+jal 6         # 2
+ldi r3 2      # 3
+beq r2 r3 1  # 4
+j 8           # 5
+add r2 r2 r2  # 6
+jr r7 0       # 7
+jal 25        # 8
+CHECKMEM
+pc: 25
+r0: 0
+r1: 0
+r2: 4
+r3: 2
+r4: 0
+r5: 0
+r6: 0
+r7: 9
+END
+
+LOADMEM # test 11
+zero r1
+ldi r1 1
+ldi r2 4
+addi r2 r2 -1
+blt r1 r2 -2
+j 25
+CHECKMEM
+pc: 25
+r0: 0
+r1: 1
+r2: 1
+r3: 0
+r4: 0
+r5: 0
+r6: 0
+r7: 0
+END
+
+LOADMEM # test 12
+zero r1        # 0
+ldi r1 16      # 1
+cp r3 r1       # 2
+jal 5          # 3 jump to 4, skip one instruction
+cp r2 r1       # 4 should not be executed
+ldi r2 1       # 5
+jr r2 7        # 6 jump to 1+7, skip one instruction
+add r2 r1 r2   # 7 should not be executed
+ldi r4 4       # 8
+sub r4 r4 r2   # 9 r4 -= 1
+blt r0 r4 -2   # 10 branch to 9 as long as r4!=0
+sw r3 r1 5     # 11 store 16 in DATA[16+5]
+lw r5 r1 5     # 12 load DATA[16+5] (16) in r5
+lw r3 r1 4     # 13 load DATA[16+4] (0) in r3
+j 20           # 14
+CHECKMEM
+r0: 0
+r1: 16
+r2: 1
+r3: 0
+r4: 0
+r5: 16
+r6: 0
+r7: 4
+pc: 20
+END
+
