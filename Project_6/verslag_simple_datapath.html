@@ -1,0 +1,166 @@
+<html class="pdstohbmf idc0_349">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-15" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verslag</title>
+    <!-- Het "u" element (underline) is geherdefinieerd voor overline -->
+    <style type="text/css">
+      u {
+        text-decoration: overline;
+      }
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 30%;
+      }
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      img {
+        max-width: 50%;
+      }
+      del {
+        text-decoration-color: red;
+      }
+      p {
+        width: 40%;
+      }
+      .addition {
+        width: 20%;
+      }
+      .addition p {
+        width: 100%;
+        text-align: right;
+      }
+      .addition span {
+        color: #999;
+        background-color: aliceblue;
+      }
+      .highlight {
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Verslag</h1>
+    <p><b>Titel:</b> <i>Computer Architectuur Project 5: Simple Datapath</i></p>
+    <p>Dit verslag werd opgesteld door:<br /></p>
+    <ul>
+      <li>
+        <b>Naam:</b> <i>Sabawoon Enayat</i><br />
+        <b>Studentennummer:</b> <i>20230497</i><br />
+        <b>Email adres:</b> <i>sabawoon.enayat@student.uantwerpen.be</i>
+      </li>
+      <li>
+        <b>Naam:</b> <i>Adam Boustta</i><br />
+        <b>Studentennummer:</b> <i>20231385</i><br />
+        <b>Email adres:</b> <i>adam.boustta@student.uantwerpen.be</i>
+      </li>
+    </ul>
+    <b>Aantal man-uren besteed:</b> <i>7 uur</i><br />
+    <b>Moeilijkheidsgraad:</b> <i>5</i> /10 (1 is heel makkelijk, 10 is heel
+    moeilijk)
+    <p></p>
+
+    <h2>Inhoud van de oplossing</h2>
+    <p>
+      De oplossing bestaat uit de volgende bestanden (geef alle bestanden op):
+    </p>
+    <ul>
+      <li>
+        <a href="./SD_Group05.circ">SD_Group05.circ</a>: Simple Datapath, Group
+        05
+      </li>
+    </ul>
+    <h2>Verslag</h2>
+    <ul>
+      <div>
+        <i>
+          <p>
+            1. Build a circuit that implements a 12-bit program counter (PC).
+            Use the Logisim SD_GroupXX.circ file provided on the course page.
+            Rename the file so that ’XX’ is your group number. Use your 12-bit
+            register. By default, the PC is increased each clock cycle, and the
+            next instruction is read from memory. In case of a relative branch,
+            the PC is increased, and then the branch value is added as a 2’s
+            complement value (e.g., if the PC has value 10 and the next cycle
+            there is a branch of value 5, then the next PC value is 16, not 15).
+            In case of an absolute branch (or jump) the PC is directly set to
+            the branch value. You should have the following inputs and outputs:
+          </p>
+          <img src="./PCTable.png" alt="PC Table" />
+        </i>
+        <ul>
+          <p>The following circuit represents a Program Counter.</p>
+          <img src="./PC.png" alt="Program Counter" />
+        </ul>
+      </div>
+      <div>
+        <i>
+          <p>
+            3. Your datapath has to be able to read instructions and act upon
+            them. For this purpose you should construct a decoder circuit that
+            reads instructions from the instruction memory and outputs the
+            different values contained in the instruction:
+          </p>
+          <img src="./DecoderTable.png" alt="Decoder Table" />
+        </i>
+        <ul>
+          <p>
+            The decoder is constructed using splitters, the only caveat is to
+            choose between an 8-bit immediate or a 4-bit immediate.
+          </p>
+          <img src="./Decoder.png" alt="Decoder" />
+        </ul>
+      </div>
+      <div>
+        <i>
+          <p>
+            4. Your datapath is composed of different components and they all
+            need to work together. A controller circuit will be needed to
+            coordinate all these components. This circuit will have two inputs:
+            operation code (4 bits) and function code (4 bits). The outputs will
+            depend on how you decide to construct your datapath. Potential
+            outputs are “Read memory”, “Write memory”, “ALU operation”, etc.
+          </p>
+        </i>
+        <ul>
+          <p>
+            The controller can be implemented in many ways. Our implementation
+            may not be the most elegant, but it surely is the easiest to
+            understand.
+          </p>
+          <img src="./Controller.png" alt="Controller" />
+        </ul>
+      </div>
+      <div>
+        <i
+          ><p>
+            Run the test files for your datapath. Do this during the development
+            of your datapath, not afterwards! A test file is given for each type
+            of instruction; run it on your circuit using the program
+            Test_2324_zit1_datapath.py. You need to install Python (http://
+            python.org/download/releases/2.7.3/) to run
+            Test_2324_zit1_datapath.py. Down- load Test_2324_zit1_datapath.py,
+            tests.zip (from the course page) and logisim-generic-2.7.1.jar
+            (http://sourceforge.net/projects/circuit/files/2. 7.x/2.7.1/) and
+            save in the same folder as your adapted SD_GroupXX.circ project. The
+            program takes a file containing small assembler programs that are
+            datapath tests as input, and a SD_GroupXX.circ logisim file. It runs
+            all datapath tests and reports test errors and failures.
+          </p></i
+        >
+        <ul>
+          <p>
+            All the tests run successfully. There's a script,
+            <code>test.ps1</code>, which runs all the tests at once.
+          </p>
+        </ul>
+      </div>
+    </ul>
+  </body>
+</html>
